@@ -101,12 +101,10 @@ class RaspiCamera:
         self.start()
 
     def __setup_cam__(self):
-        self.cam = PiCamera(resolution='640x480', framerate=24)
-        self.cam.framerate = 10
+        self.cam = PiCamera()
+        self.cam.framerate = 30
         self.cam.rotation = 0
-        self.cam.resolution = (320, 240)
-
-
+        self.cam.resolution = (self.width, self.height)
 
     def start(self):
         self.cam.start_recording(self.buffer, format='mjpeg')
